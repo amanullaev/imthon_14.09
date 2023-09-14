@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-sv79ueh7v#lt9755ck2+^!k+%$h06-k(gtx#@g(bww--i13d-s'
+# SECRET_KEY = 'django-insecure-sv79ueh7v#lt9755ck2+^!k+%$h06-k(gtx#@g(bww--i13d-s'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,6 +37,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 'modeltranslation',
     'account',
     'field_api',
     'user_api',
@@ -53,6 +55,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -60,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 AUTH_USER_MODEL = 'account.CustomUser'
 ROOT_URLCONF = 'config.urls'
 
@@ -131,7 +135,19 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
+# TRANSLATABLE_MODEL_MODULES = ['account.CustomUser']
+#
+# LANGUAGES = (
+#     ('en', ('English')),
+#     ('ru', ('Russian')),
+#     ('uz', ('Uzbek')),
+# )
+
+# MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
+# MODELTRANSLATION_LANGUAGES_REGISTRY = 'config.translation'
+
 LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'uz'
 
 TIME_ZONE = 'UTC'
 
