@@ -3,6 +3,7 @@ from user_api.models import UserModel
 
 
 class FieldModel(models.Model):
+    price_frtoh = models.IntegerField()
     name = models.CharField(max_length=100)
     owner = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     location = models.CharField(max_length=255)
