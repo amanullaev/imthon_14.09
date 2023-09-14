@@ -11,11 +11,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from datetime import timedelta
 
-load_dotenv()
-import os
+# load_dotenv()
+# import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-sv79ueh7v#lt9755ck2+^!k+%$h06-k(gtx#@g(bww--i13d-s'
-SECRET_KEY = os.getenv('SECRET_KEY')
+# SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-sv79ueh7v#lt9755ck2+^!k+%$h06-k(gtx#@g(bww--i13d-s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,12 +40,13 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # 'modeltranslation',
     'account',
+
+    'time',
+
     'field_api',
     'user_api',
-
     'rest_framework',
     'rest_framework_simplejwt',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

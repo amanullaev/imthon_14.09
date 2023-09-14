@@ -3,6 +3,7 @@ from django.db import models
 from account.models import *
 
 class FieldModel(models.Model):
+    price_frtoh = models.IntegerField()
     name = models.CharField(max_length=100)
     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     location = models.CharField(max_length=255)
@@ -19,10 +20,16 @@ class FieldModel(models.Model):
 class BookingModel(models.Model):
     field = models.ForeignKey(FieldModel, on_delete=models.CASCADE)
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    # user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
     date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()
     is_approved = models.BooleanField(default=False)
 
     def __str__(self):
+
         return f"Booking for {self.field.name} by {self.user.username}"
+
+
+
+
