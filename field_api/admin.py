@@ -1,9 +1,10 @@
 from django.contrib import admin
 from .models import FieldModel, BookingModel
-
+from .form import *
 
 @admin.register(FieldModel)
 class FieldAdmin(admin.ModelAdmin):
+    form = StadiomForm
     list_display = ('name', 'owner', 'location', 'is_indoor')
     search_fields = ('name', 'location')
 
