@@ -6,7 +6,6 @@ from account.models import CustomUser
 class FieldModel(models.Model):
     name = models.CharField(max_length=100)
     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    price = models.CharField(max_length=200)
     location = models.CharField(max_length=255)
     capacity = models.PositiveIntegerField(default=0)
     description = models.TextField(blank=True, null=True)
