@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import events_endpoint
+from .views import  BornView
 
 urlpatterns = [
-    path('events/', events_endpoint, name='events_endpoint'),
+    path('events/', BornView.as_view(), name='events_endpoint'),
 ]
