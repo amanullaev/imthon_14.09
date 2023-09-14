@@ -6,7 +6,7 @@ from rest_framework import filters
 from django.db.models import Q
 
 
-class FieldListView(generics.ListAPIView):
+class FieldListView(generics.ListCreateAPIView):
     queryset = BookingModel.objects.all()
     serializer_class = FieldSerializer
     filter_backends = [filters.OrderingFilter]
@@ -15,7 +15,7 @@ class FieldListView(generics.ListAPIView):
     def get_queryset(self):
         start_time = self.request.query_params.get('start_time')
         end_time = self.request.query_params.get('end_time')
-        data = self.request.query_params.get('data')
+        date = self.request.query_params.get('date')
 
         queryset = BookingModel.objects.all()
 
@@ -24,8 +24,8 @@ class FieldListView(generics.ListAPIView):
                 Q(booked_time__lt=start_time) | Q(booked_time__gt=end_time) | Q(booked_time__isnull=True)
             )
 
-        if data:
-            queryset = queryset.filter(data=data)
+        if date:
+            queryset = queryset.filter(data=date)
 
         return queryset
 
