@@ -26,3 +26,5 @@ class BookingModel(models.Model):
 
     def __str__(self):
         return f"Booking for {self.field.name} by {self.user.name}"
+
+

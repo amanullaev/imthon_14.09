@@ -1,4 +1,3 @@
-from rest_framework import generics
 from .models import FieldModel, BookingModel
 from .serializers import FieldSerializer, BookingSerializer
 from config.permissions import AdminPermission, OwnerPermission, UserPermission
@@ -8,7 +7,7 @@ from django.db.models import Q
 
 
 class FieldListView(generics.ListAPIView):
-    queryset = FieldModel.objects.all()
+    queryset = BookingModel.objects.all()
     serializer_class = FieldSerializer
     filter_backends = [filters.OrderingFilter]
     ordering_fields = ['booked_time']
@@ -16,13 +15,19 @@ class FieldListView(generics.ListAPIView):
     def get_queryset(self):
         start_time = self.request.query_params.get('start_time')
         end_time = self.request.query_params.get('end_time')
+        data = self.request.query_params.get('data')
+
+        queryset = BookingModel.objects.all()
 
         if start_time and end_time:
-            return FieldModel.objects.filter(
+            queryset = queryset.filter(
                 Q(booked_time__lt=start_time) | Q(booked_time__gt=end_time) | Q(booked_time__isnull=True)
             )
-        else:
-            return FieldModel.objects.filter(booked_time__isnull=True)
+
+        if data:
+            queryset = queryset.filter(data=data)
+
+        return queryset
 
 
 class FieldDetailView(generics.RetrieveUpdateDestroyAPIView):
