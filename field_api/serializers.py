@@ -11,4 +11,6 @@ class FieldSerializer(serializers.ModelSerializer):
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = BookingModel
-        fields = ('field', 'user', 'data', 'start_time', 'end_time', 'is_approved')
+        fields = ('field', 'user', 'date', 'start_time', 'end_time', 'is_approved')
+
+

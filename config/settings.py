@@ -134,7 +134,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
-
+#
 # TRANSLATABLE_MODEL_MODULES = ['account.CustomUser']
 #
 # LANGUAGES = (
@@ -142,7 +142,7 @@ AUTH_PASSWORD_VALIDATORS = [
 #     ('ru', ('Russian')),
 #     ('uz', ('Uzbek')),
 # )
-
+#
 # MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
 # MODELTRANSLATION_LANGUAGES_REGISTRY = 'config.translation'
 
