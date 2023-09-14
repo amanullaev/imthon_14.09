@@ -1,8 +1,4 @@
 from django import forms
-<<<<<<< HEAD
-class FieldForm(forms.Form):
-    name = forms.CharField(max_length=100)
-=======
 from .models import CustomUser
 
 
@@ -19,4 +15,4 @@ class AccountForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         exclude = ['first_name', 'last_name']
->>>>>>> bee717d6443d4672c2ce8692a31160b8e8782c24
+
