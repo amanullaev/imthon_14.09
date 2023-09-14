@@ -19,7 +19,7 @@ class CustomUserAdmin(UserAdmin):
                 "email", "password1", "password2", "is_staff",
                 "is_active", "groups", "user_permissions", "roles"
             )}
-        ),
+         ),
     )
     search_fields = ("username",)
     ordering = ("username",)

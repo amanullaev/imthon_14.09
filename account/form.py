@@ -11,7 +11,6 @@ class AccountForm(forms.ModelForm):
     last_name_ru = forms.CharField(required=False)
     last_name_en = forms.CharField(required=False)
 
-
     class Meta:
         model = CustomUser
         exclude = ['first_name', 'last_name']
