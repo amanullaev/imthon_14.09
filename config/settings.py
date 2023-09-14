@@ -37,8 +37,12 @@ ALLOWED_HOSTS = ['http://127.0.0.1:8000/']
 
 INSTALLED_APPS = [
     'account',
+    'field_api',
+    'user_api',
+
     'rest_framework',
     'rest_framework_simplejwt',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
