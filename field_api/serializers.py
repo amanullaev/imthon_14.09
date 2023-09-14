@@ -5,7 +5,8 @@ from .models import FieldModel, BookingModel
 class FieldSerializer(serializers.ModelSerializer):
     class Meta:
         model = FieldModel
-        fields = ('name', 'owner', 'location', 'capacity', 'description', 'is_indoor', 'created_at', 'updated_at')
+        fields = ('name', 'owner', 'price', 'location', 'capacity', 'description', 'is_indoor',
+                  'created_at', 'updated_at')
 
 
 class BookingSerializer(serializers.ModelSerializer):

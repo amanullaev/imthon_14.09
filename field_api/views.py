@@ -5,6 +5,7 @@ from rest_framework import generics
 from rest_framework import filters
 from django.db.models import Q
 from datetime import datetime
+from account.permissions import OwnerPermission, UserPermission
 
 
 class FieldListView(generics.ListCreateAPIView):
@@ -15,7 +16,7 @@ class FieldListView(generics.ListCreateAPIView):
 class FieldDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = FieldModel.objects.all()
     serializer_class = FieldSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = (OwnerPermission, UserPermission)
 
 
 class BookingListView(generics.ListCreateAPIView):
@@ -56,4 +57,4 @@ class BookingListView(generics.ListCreateAPIView):
 class BookingDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = BookingModel.objects.all()
     serializer_class = BookingSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [OwnerPermission, UserPermission]

@@ -4,7 +4,7 @@ from .models import FieldModel, BookingModel
 
 @admin.register(FieldModel)
 class FieldAdmin(admin.ModelAdmin):
-    list_display = ('name', 'owner', 'location', 'is_indoor')
+    list_display = ('name', 'owner','price', 'location', 'is_indoor')
     search_fields = ('name', 'location')
 
 

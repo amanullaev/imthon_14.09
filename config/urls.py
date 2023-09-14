@@ -46,7 +46,6 @@ urlpatterns = [
 
     path('account/', include("account.urls")),
     path('fields/', include('field_api.urls')),
-    path('user/', include('user_api.urls')),
 ]
 
 urlpatterns += i18n_patterns(

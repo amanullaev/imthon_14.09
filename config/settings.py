@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     # 'modeltranslation',
     'account',
     'field_api',
-    'user_api',
+
 
     'rest_framework',
     'rest_framework_simplejwt',
