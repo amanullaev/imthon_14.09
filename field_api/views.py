@@ -33,10 +33,10 @@ class FieldListView(generics.ListCreateAPIView):
         return queryset
 
 
-class FieldDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = FieldModel.objects.all()
-    serializer_class = FieldSerializer
-    permission_classes = [UserPermission]
+# class FieldDetailView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = FieldModel.objects.all()
+#     serializer_class = FieldSerializer
+#     permission_classes = [UserPermission]
 
 
 class BookingListView(generics.ListCreateAPIView):

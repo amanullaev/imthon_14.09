@@ -11,11 +11,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from datetime import timedelta
 
-# load_dotenv()
-# import os
+load_dotenv()
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,11 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-sv79ueh7v#lt9755ck2+^!k+%$h06-k(gtx#@g(bww--i13d-s'
-# SECRET_KEY = os.getenv('SECRET_KEY')
-SECRET_KEY = 'django-insecure-sv79ueh7v#lt9755ck2+^!k+%$h06-k(gtx#@g(bww--i13d-s'
+SECRET_KEY = os.getenv('SECRET_KEY')
+# SECRET_KEY = 'django-insecure-sv79ueh7v#lt9755ck2+^!k+%$h06-k(gtx#@g(bww--i13d-s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -38,7 +38,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'modeltranslation',
+    'modeltranslation',
     'account',
     'field_api',
     'user_api',
@@ -96,23 +96,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'myproject',
-#         'USER': 'myprojectuser',
-#         'PASSWORD': 'password',
-#         'HOST': 'localhost',
-#         'PORT': '',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -136,19 +136,19 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-# TRANSLATABLE_MODEL_MODULES = ['account.CustomUser']
-#
-# LANGUAGES = (
-#     ('en', ('English')),
-#     ('ru', ('Russian')),
-#     ('uz', ('Uzbek')),
-# )
+TRANSLATABLE_MODEL_MODULES = ['account.CustomUser']
 
-# MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
-# MODELTRANSLATION_LANGUAGES_REGISTRY = 'config.translation'
+LANGUAGES = (
+    ('en', ('English')),
+    ('ru', ('Russian')),
+    ('uz', ('Uzbek')),
+)
 
-LANGUAGE_CODE = 'en-us'
-# LANGUAGE_CODE = 'uz'
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
+MODELTRANSLATION_LANGUAGES_REGISTRY = 'config.translation'
+
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uz'
 
 TIME_ZONE = 'UTC'
 
